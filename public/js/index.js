@@ -40,8 +40,6 @@ var segment2 = new Konva.Rect({
 	strokeWidth: 4
 });
 
-console.log(cards);
-
 cards.forEach(({ title, text }, num) => {
 	var card = new Konva.Rect({
 		x: segmentWidth / 2,
@@ -70,5 +68,5 @@ stage.add(layer);
 stage.add(layer2);
 
 // find and change text
-console.log(lifePoint.text('Life Points:10000'));
-layer.draw();
+// console.log(lifePoint.text('Life Points:10000'));
+// layer.draw();
