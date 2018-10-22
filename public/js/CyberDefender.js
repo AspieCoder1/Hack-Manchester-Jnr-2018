@@ -40,6 +40,8 @@ var segment2 = new Konva.Rect({
 	strokeWidth: 4
 });
 
+console.log(cards);
+
 cards.forEach(({ title, text }, num) => {
 	var card = new Konva.Rect({
 		x: segmentWidth / 2,
@@ -54,8 +56,8 @@ cards.forEach(({ title, text }, num) => {
 	});
 	layer2.add(card);
 	card.on('click', () => {
-		$('#card-text').text(text);
-		$('#card-title').text(title);
+		$('#card-text').text(text.trim());
+		$('#card-title').text(title.trim());
 		$('#myModal').modal();
 	});
 });
