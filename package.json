@@ -1,0 +1,24 @@
+{
+	"name": "hackmcr-jr",
+	"version": "1.0.0",
+	"description": "Our entry to Hack Manchester 2018",
+	"main": "index.js",
+	"scripts": {
+		"server": "node server/server.js",
+		"dev-server": "nodemon server/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sai109/Hack-Manchester-Jnr-2018.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/sai109/Hack-Manchester-Jnr-2018/issues"
+	},
+	"homepage": "https://github.com/sai109/Hack-Manchester-Jnr-2018#readme",
+	"dependencies": {
+		"express": "^4.16.4",
+		"nodemon": "^1.18.4"
+	}
+}
