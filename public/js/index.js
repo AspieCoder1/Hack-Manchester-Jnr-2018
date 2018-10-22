@@ -40,7 +40,14 @@ var segment2 = new Konva.Rect({
 	strokeWidth: 4
 });
 
-cards.forEach(({ title, text }, num) => {
+// Randomises the five cards selected for the hand
+var shuffledCards = cards.sort(() => 0.5 - Math.random());
+var deck = shuffledCards.splice(0, 5);
+
+// turn number variable to ensure hand is less than five
+const turnNumber = 0;
+
+deck.forEach(({ title, text }, num) => {
 	var card = new Konva.Rect({
 		x: segmentWidth / 2,
 		y: segmentHeight / 2,
@@ -59,6 +66,9 @@ cards.forEach(({ title, text }, num) => {
 		$('#myModal').modal();
 	});
 });
+
+// Event handler for removal of card goes here
+// if deck has less than 5 cards append next card from shuffled deck
 
 layer.add(segment1);
 layer.add(segment2);
