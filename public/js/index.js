@@ -58,15 +58,15 @@ socket.on('damage', ({ damage }) => {
 	lifePoints = lifePoints - damage;
 	if (lifePoints <= 0) {
 		lifePoint.text('You Lose');
-		lifePoint.draw();
+		layer.draw();
 		socket.emit('game_over');
 	} else {
 		lifePoint.text(`Lifepoint: ${lifePoints}`);
-		lifePoint.draw();
+		layer.draw();
 	}
 });
 
 socket.on('game_over', () => {
 	lifePoint.text('You Win');
-	lifePoint.draw();
+	layer.draw();
 });
