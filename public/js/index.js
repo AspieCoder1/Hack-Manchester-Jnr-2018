@@ -47,25 +47,29 @@ var deck = shuffledCards.splice(0, 5);
 // turn number variable to ensure hand is less than five
 const turnNumber = 0;
 
-deck.forEach(({ title, text }, num) => {
-	var card = new Konva.Rect({
-		x: segmentWidth / 2,
-		y: segmentHeight / 2,
-		width: 200,
-		height: 300,
-		id: num,
-		fill: 'purple',
-		stroke: 'black',
-		strokeWidth: 4,
-		draggable: true
+cards
+	.filter(({ imageURL }) => imageURL !== undefined)
+	.forEach(({ title, text, imageURL }, num) => {
+		var image = new Image();
+		image.src = imageURL;
+		var card = new Konva.Rect({
+			x: segmentWidth / 2,
+			y: segmentHeight / 2,
+			width: 200,
+			height: 300,
+			fillPatternImage: image,
+			id: num,
+			stroke: 'black',
+			strokeWidth: 4,
+			draggable: true
+		});
+		layer2.add(card);
+		card.on('click', () => {
+			$('#card-text').text(text.trim());
+			$('#card-title').text(title.trim());
+			$('#myModal').modal();
+		});
 	});
-	layer2.add(card);
-	card.on('click', () => {
-		$('#card-text').text(text.trim());
-		$('#card-title').text(title.trim());
-		$('#myModal').modal();
-	});
-});
 
 // Event handler for removal of card goes here
 // if deck has less than 5 cards append next card from shuffled deck

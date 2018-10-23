@@ -3,6 +3,7 @@ let cards = [
 		title: 'Ransomware Attack',
 		text:
 			'Malicious code used to launch data kidnapping. The motive for ransomware attacks is often monetary, and the victim is usually notified that it has occurred and is given instructions to stop the attack ( for money)',
+		imageURL: '../img/card.png',
 		damage: 78,
 		defense: 0
 	},
