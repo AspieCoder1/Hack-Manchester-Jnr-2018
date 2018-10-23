@@ -3,13 +3,6 @@ var height = window.innerHeight;
 var segmentWidth = window.innerWidth / 2;
 var segmentHeight = window.innerHeight;
 
-socket.on('damage', ({ damage }) => {
-	console.log(damage);
-	lifePoints = lifePoints - damage;
-	lifePoint.text(`Lifepoint: ${lifePoints}`);
-	layer.draw();
-});
-
 var lifePoints = 100;
 
 var stage = new Konva.Stage({
@@ -59,3 +52,21 @@ layer.add(cardZone1);
 
 stage.add(layer);
 stage.add(cardLayer);
+
+// SocketIO events
+socket.on('damage', ({ damage }) => {
+	lifePoints = lifePoints - damage;
+	if (lifePoints <= 0) {
+		lifePoint.text('You Lose');
+		lifePoint.draw();
+		socket.emit('game_over');
+	} else {
+		lifePoint.text(`Lifepoint: ${lifePoints}`);
+		layer.draw();
+	}
+});
+
+socket.on('game_over', () => {
+	lifePoint.text('You Win');
+	layer.draw();
+});

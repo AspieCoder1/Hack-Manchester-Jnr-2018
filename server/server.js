@@ -18,9 +18,11 @@ http.listen(port, () => {
 });
 
 io.on('connection', socket => {
-	console.log(socket.client.id);
 	socket.on('damage', data => {
 		console.log(data);
 		socket.broadcast.emit('damage', data);
+	});
+	socket.on('game_over', () => {
+		socket.broadcast.emit('game_over');
 	});
 });
