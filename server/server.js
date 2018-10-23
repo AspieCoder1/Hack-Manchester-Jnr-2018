@@ -22,7 +22,7 @@ app.get('/win', (req, res) => {
 });
 
 app.get('/lose', (req, res) => {
-	res.sendFile(path.join(__dirname, '../public/lost.html'));
+	res.sendFile(path.join(__dirname, '../public/lose.html'));
 });
 
 http.listen(port, () => {
