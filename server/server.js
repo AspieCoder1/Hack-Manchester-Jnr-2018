@@ -10,7 +10,11 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, '../public/CyberDefender.html'));
+	res.sendFile(path.join(__dirname, '../public/index.html'));
+});
+
+app.get('/game', (req, res) => {
+	res.sendFile(path.join(__dirname, '../public/game.html'));
 });
 
 http.listen(port, () => {
