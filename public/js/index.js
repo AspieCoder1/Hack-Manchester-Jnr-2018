@@ -60,6 +60,7 @@ socket.on('damage', ({ damage }) => {
 		lifePoint.text('You Lose');
 		layer.draw();
 		socket.emit('game_over');
+		location.assign('/lose');
 	} else {
 		lifePoint.text(`Lifepoint: ${lifePoints}`);
 		layer.draw();
@@ -69,4 +70,5 @@ socket.on('damage', ({ damage }) => {
 socket.on('game_over', () => {
 	lifePoint.text('You Win');
 	layer.draw();
+	location.assign('/win');
 });

@@ -17,6 +17,14 @@ app.get('/game', (req, res) => {
 	res.sendFile(path.join(__dirname, '../public/game.html'));
 });
 
+app.get('/win', (req, res) => {
+	res.sendFile(path.join(__dirname, '../public/win.html'));
+});
+
+app.get('/lose', (req, res) => {
+	res.sendFile(path.join(__dirname, '../public/lost.html'));
+});
+
 http.listen(port, () => {
 	console.log(`listening on port ${port}`);
 });
