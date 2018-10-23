@@ -62,11 +62,11 @@ socket.on('damage', ({ damage }) => {
 		socket.emit('game_over');
 	} else {
 		lifePoint.text(`Lifepoint: ${lifePoints}`);
-		layer.draw();
+		lifePoint.draw();
 	}
 });
 
 socket.on('game_over', () => {
 	lifePoint.text('You Win');
-	layer.draw();
+	lifePoint.draw();
 });
