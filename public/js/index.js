@@ -3,6 +3,15 @@ var height = window.innerHeight;
 var segmentWidth = window.innerWidth / 2;
 var segmentHeight = window.innerHeight;
 
+socket.on('damage', ({ damage }) => {
+	console.log(damage);
+	lifePoints = lifePoints - damage;
+	lifePoint.text(`Lifepoint: ${lifePoints}`);
+	layer.draw();
+});
+
+var lifePoints = 100;
+
 var stage = new Konva.Stage({
 	container: 'container',
 	width: width,
@@ -10,77 +19,43 @@ var stage = new Konva.Stage({
 });
 
 var layer = new Konva.Layer();
-var layer2 = new Konva.Layer();
+var cardLayer = new Konva.Layer();
 
 var lifePoint = new Konva.Text({
 	x: 50,
 	y: 50,
 	id: 'P1',
-	text: 'Player Lifepoint: 100',
+	text: `Player Lifepoint: ${lifePoints}`,
 	fontSize: 30
 });
 
-var segment1 = new Konva.Rect({
+var background = new Konva.Rect({
 	x: 0,
 	y: 0,
-	width: segmentWidth,
-	height: segmentHeight,
+	width: window.innerWidth,
+	height: window.innerHeight,
 	fill: 'blue',
 	stroke: 'black',
 	strokeWidth: 4
 });
 
-var segment2 = new Konva.Rect({
-	x: segmentWidth,
-	y: 0,
-	width: segmentWidth,
-	height: segmentHeight,
-	fill: 'red',
+// Drop zone for cards
+var cardZone1 = new Konva.Rect({
+	x: segmentWidth - (3 / 20) * segmentWidth,
+	y: 50,
+	width: 3 * (segmentWidth / 10),
+	height: segmentHeight / 2,
+	fill: 'white',
 	stroke: 'black',
-	strokeWidth: 4
+	strokeWidth: 4,
+	draggable: false
 });
 
-// Randomises the five cards selected for the hand
-var shuffledCards = cards.sort(() => 0.5 - Math.random());
-var deck = shuffledCards.splice(0, 5);
+drawCards();
 
-// turn number variable to ensure hand is less than five
-const turnNumber = 0;
-
-cards
-	.filter(({ imageURL }) => imageURL !== undefined)
-	.forEach(({ title, text, imageURL }, num) => {
-		var image = new Image();
-		image.src = imageURL;
-		var card = new Konva.Rect({
-			x: segmentWidth / 2,
-			y: segmentHeight / 2,
-			width: 200,
-			height: 300,
-			fillPatternImage: image,
-			id: num,
-			stroke: 'black',
-			strokeWidth: 4,
-			draggable: true
-		});
-		layer2.add(card);
-		card.on('click', () => {
-			$('#card-text').text(text.trim());
-			$('#card-title').text(title.trim());
-			$('#myModal').modal();
-		});
-	});
-
-// Event handler for removal of card goes here
-// if deck has less than 5 cards append next card from shuffled deck
-
-layer.add(segment1);
-layer.add(segment2);
+layer.add(background);
 layer.add(lifePoint);
+layer.add(cardZone1);
 
 stage.add(layer);
-stage.add(layer2);
-
-// find and change text
-// console.log(lifePoint.text('Life Points:10000'));
-// layer.draw();
+stage.add(cardLayer);

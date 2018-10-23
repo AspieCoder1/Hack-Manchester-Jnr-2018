@@ -4,7 +4,7 @@
 	"description": "Our entry to Hack Manchester 2018",
 	"main": "index.js",
 	"scripts": {
-		"server": "node server/server.js",
+		"start": "node server/server.js",
 		"dev-server": "nodemon server/server.js"
 	},
 	"repository": {
@@ -19,6 +19,7 @@
 	"homepage": "https://github.com/sai109/Hack-Manchester-Jnr-2018#readme",
 	"dependencies": {
 		"express": "^4.16.4",
-		"nodemon": "^1.18.4"
+		"nodemon": "^1.18.4",
+		"socket.io": "^2.1.1"
 	}
 }

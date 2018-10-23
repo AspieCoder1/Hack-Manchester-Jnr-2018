@@ -5,6 +5,7 @@
   <script src="https://unpkg.com/konva@2.4.2/konva.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/styles.css">
   <meta charset="utf-8">
@@ -31,7 +32,12 @@
   </section>
 
   <div id="container"></div>
-  <script src="./src/cards.js"></script>
+  <script src="./js/cards.js"></script>
+  <script src="./js//socket.js"></script>
+  <script src="./js/functions.js"></script>
+  <script>
+    socket.emit('test', 'test');
+  </script>
   <script src="./js/index.js"></script>
 </body>
 
