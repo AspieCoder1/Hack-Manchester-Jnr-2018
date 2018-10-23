@@ -92,7 +92,7 @@ let cards = [
 		text:
 			'The hacker attempt to obtain sensitive information such as usernames and credit card details, often for malicious reasons, by disguising as a trustworthy entity in an electronic communication',
 		imageURL: '../img/Phishing.png',
-		damage: 52,
+		damage: 42,
 		defense: 0
 	},
 	{
@@ -124,7 +124,7 @@ let cards = [
 		text:
 			'A cyber-attack where the perpetrator seeks to make a machine or network resource unavailable to its intended users by temporarily/ indefinitely disrupting services of a host connected to the Internet.',
 		imageURL: '../img/Denial Of Service.png',
-		damage: 52,
+		damage: 94,
 		defense: 0
 	}
 ];
