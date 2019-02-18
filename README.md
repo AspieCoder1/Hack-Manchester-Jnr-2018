@@ -17,3 +17,4 @@ npm run start
 yarn
 yarn start
 ```
+If you go to `localhost:3000` you should see a copy of the app open in your browser.
